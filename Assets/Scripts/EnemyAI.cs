@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float attackRange = 3f;
-    [SerializeField] float turnSpeed = 5f;
+    [SerializeField] float turnSpeed = 7f;
     NavMeshAgent navMeshAgent;
     bool isProvoked;
     float distanceToTarget = Mathf.Infinity;
@@ -43,12 +43,12 @@ public class EnemyAI : MonoBehaviour
     private void FaceTarget()
     {
         // make enemy facing the target via rotation
-        /*
         Vector3 direction = (target.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*turnSpeed);
-        */
-        transform.LookAt(target.transform);
+
+        //lookat make enemy look too suddently, not smooth
+        //transform.LookAt(target.transform);
     }
 
     private void EngageWithTarget()
