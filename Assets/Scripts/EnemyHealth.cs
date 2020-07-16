@@ -13,5 +13,8 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //GetComponent<EnemyAI>().OnDamageTaken(); //not the best way, use broadcast
+        BroadcastMessage("OnDamageTaken");
     }
 }

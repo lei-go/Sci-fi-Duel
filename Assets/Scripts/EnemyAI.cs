@@ -35,9 +35,13 @@ public class EnemyAI : MonoBehaviour
         else if (distanceToTarget <= chaseRange)
         {
             isProvoked = true;
-            navMeshAgent.SetDestination(target.position);
         }
         
+    }
+
+    public void OnDamageTaken()
+    {
+        isProvoked = true;
     }
 
     private void FaceTarget()
