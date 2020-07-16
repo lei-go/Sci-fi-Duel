@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 
     private void PlayMuzzleFlash()
     {
-        muzzleFlash.Play();
+        if (muzzleFlash != null) muzzleFlash.Play();
     }
 
     private void Shoot()
@@ -43,7 +43,10 @@ public class Weapon : MonoBehaviour
 
     private void CreateHitImpact(RaycastHit hit)
     {
-        GameObject impact = Instantiate(hitImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impact, 0.3f);
+        if (hitImpactEffect != null)
+        {
+            GameObject impact = Instantiate(hitImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impact, 0.3f);
+        }
     }
 }
